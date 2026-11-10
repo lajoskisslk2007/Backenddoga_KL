@@ -10,5 +10,10 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 app.get("GET/api/autok" ,async=>{
-    
+    try{
+        app(200,message("jo"))    
+    }
+    catch{
+        error(500 ,message("hiba"))
+    }
 })
