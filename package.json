@@ -6,6 +6,7 @@
     "mysql2": "^3.24.6"
   },
   "scripts": {
-    "dev":"node.js"
+    "dev":"db.js",
+    "start":"server.js"
   }
 }

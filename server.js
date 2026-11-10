@@ -5,15 +5,14 @@ import db from './db.js';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
+const PORT = process.env.PORT || 3000
 app.use(express.json());
 
-app.get("GET/api/autok" ,async=>{
-    try{
-        app(200,message("jo"))    
-    }
-    catch{
-        error(500 ,message("hiba"))
-    }
-})
+app.get('/api/autok', async (req, res) => {
+  try {
+    const [rows] = await db.query('SELECT * FROM autok');
+    res.status(200).json(rows);
+  } catch (error) {
+    res.status(500).json({ hiba: "Adatbázis hiba történt!" });
+  }
+});
